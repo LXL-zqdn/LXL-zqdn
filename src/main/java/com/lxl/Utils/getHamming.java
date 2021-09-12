@@ -32,7 +32,6 @@ public class getHamming {
      */
     public static double getCoincidence(String simHash,String simHash1){
         int len = hammingValue(simHash,simHash1);
-        int t = (100 - len * 10 /128)/100;
-        return t;
+        return (100 - len * 100 /128)*0.01;
     }
 }

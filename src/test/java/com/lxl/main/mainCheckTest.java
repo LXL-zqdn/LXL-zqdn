@@ -65,7 +65,7 @@ public class mainCheckTest {
         s[4] = filesIO.readFile("D:\\Test2\\orig_0.8_dis_10.txt");
         s[5]=  filesIO.readFile("D:\\Test2\\orig_0.8_dis_15.txt");
         String finallyAllTest = "D:\\Test2\\finallyAll.txt";
-        for (int i = 0; i < s.length-1 ; i++) {
+        for (int i = 0; i < s.length ; i++) {
             double result = getHamming.getCoincidence(simHash.getSimHash(s[0]),simHash.getSimHash(s[i]));
             filesIO.writeFile(result,finallyAllTest);
         }
