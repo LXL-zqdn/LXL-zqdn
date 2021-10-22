@@ -3,7 +3,6 @@ package com.lxl.main;
 import com.lxl.Utils.*;
 
 import java.io.File;
-import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -12,7 +11,7 @@ import java.util.Scanner;
 public class mainCreate {
     public static void main(String[] args) {
         equationCreate equC = new equationCreate();
-        becomeSuffix suffix = new becomeSuffix();
+        beSuffix suffix = new beSuffix();
         filesIO fIO = new filesIO();
 
         File f1 = new File("Exercises.txt");
@@ -44,7 +43,7 @@ public class mainCreate {
                     break ;
                 case "-g":
                     for (int i = 0; i < n; i++) {
-                        String str = equC.equations(n, m);//生成中缀表达式
+                        String str = equC.equations(n,m);//生成中缀表达式
                         String newStr;
                         String answer = suffix.calculateSuffix(suffix.becomeSuffix(str));
                         //转为后缀表达式并求解

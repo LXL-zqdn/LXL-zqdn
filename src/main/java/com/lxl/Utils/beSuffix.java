@@ -5,13 +5,13 @@ import java.util.Stack;
 /**
  * @LXL
  */
-public class becomeSuffix {
+public class beSuffix {
     /**
      * 将中缀表达式转换为后缀表达式
      * @param equ
      * @return
      */
-    public String becomeSuffix(String equ){
+    public  String becomeSuffix(String equ){
         Stack<Character> s = new Stack<Character>();
         String newStr = " ";
         int length = equ.length();
@@ -78,7 +78,7 @@ public class becomeSuffix {
      * @param newStr 由前面转换而来的后缀表达式
      * @return 返回计算结果
      */
-    public String calculateSuffix(String newStr){
+    public  String calculateSuffix(String newStr){
         String[] strings = newStr.split(" ");//按空格分解字符串
         Stack<String> stack = new Stack<String>();//将后缀表达式中的数字入栈，若是符号则取栈顶两数运算后结果压入栈
         for (int i = 0; i < strings.length ; i++) {
@@ -104,13 +104,13 @@ public class becomeSuffix {
      * @param ch 运算符
      * @return 返回两数进行运算的结果
      */
-    public String myCalculation(String x1,String x2,String ch){
+    public  String myCalculation(String x1,String x2,String ch){
         String str = "";
         boolean tag1 = false,tag2 = false;
-        if(x1.indexOf("/") != -1){  //判断两数是否为分数
+        if(x1.contains("/")){  //判断两数是否为分数
             tag1 = true;
         }
-        if(x2.indexOf("/") != -1){
+        if(x2.contains("/")){
             tag2 = true;
         }
         int a=1,b=1,c=1,d=1,l1=0,l2=0;  //两个分数分别为 l1'a/c 和 l2'b/d
@@ -176,18 +176,24 @@ public class becomeSuffix {
             }
         }
         equationCreate eq = new equationCreate();  //创建一个对象，用其中的约分方法
-        if ("+".equals(ch)) {
-            str = eq.Simplify(a * d + c * b, c * d);//例如2/3 + 3/4 = （2*4+3*3）/(3*4) = 17/12
-        }else if("-".equals(ch)){
-            str = eq.Simplify(a * d - c * b, c * d);
-        }else if("*".equals(ch)){
-            str = eq.Simplify(a * b, c * d);
-        }else{
-            if(c*d==0){
-                str = "无解";
-            }else{
-                str = eq.Simplify(a * d, c * b);
-            }
+        switch (ch) {
+            case "+":
+                str = eq.Simplify(a * d + c * b, c * d);//例如2/3 + 3/4 = （2*4+3*3）/(3*4) = 17/12
+                break;
+            case "-":
+                str = eq.Simplify(a * d - c * b, c * d);
+                break;
+            case "*":
+                str = eq.Simplify(a * b, c * d);
+                break;
+            case "÷":
+                if (c * b == 0) {
+                    str = "无解";
+                    break;
+                } else {
+                    str = eq.Simplify(a * d, c * b);
+                }
+                break;
         }
         return str;
     }

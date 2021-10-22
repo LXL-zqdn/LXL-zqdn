@@ -8,11 +8,10 @@ import java.util.Random;
 public class equationCreate {
     /**
      * 生成算数运算式（中缀表达式）
-     * @param n
      * @param m 运算式所需数字的范围
      * @return 返回算数运算式（中缀表达式）
      */
-    public String equations(int n , int m){
+    public  String equations(int n, int m){
         String equ = numberCreate(m);
         Random r = new Random();
         int ch = r.nextInt(2);
@@ -33,7 +32,7 @@ public class equationCreate {
      * @param m 运算数的范围
      * @return 返回生成的数字的字符串形式
      */
-    public String numberCreate(int m){
+    public  String numberCreate(int m){
         String s = " ";
         Random r = new Random();
         int ch = r.nextInt(2);
@@ -56,10 +55,10 @@ public class equationCreate {
      * @param b 操作数b
      * @return 返回化简结果
      */
-    public String Simplify(int a,int b){
-        String s = " ";
-        int commonNum = 1 ;//公约数
-        int c = a/b;
+    public  String Simplify(int a,int b){
+        String s = "";
+        int commonNum = 1 ,c;//公约数
+        c = a/b;
         a = a % b;
         if(c < 0){
             a = a*(-1);//当c小于0时，有一个负号了，将余数的负号删去
@@ -86,7 +85,7 @@ public class equationCreate {
      * @return
      */
     public String symbolCreate(){
-        String s = " ";
+        String s = "";
         Random r = new Random();
         int ch = r.nextInt(4);
         switch (ch){
@@ -97,7 +96,7 @@ public class equationCreate {
         }
         return s;
     }
-    public boolean bracket(){
+    public  boolean bracket(){
         boolean tag = false;
         Random r = new Random();
         if((r.nextInt(3))>1){  //0、1、2中大于1的只有2，所以生成括号的概率是三分之一

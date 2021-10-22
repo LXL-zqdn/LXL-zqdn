@@ -63,12 +63,12 @@ public class checkDuplicate {
      * @return 返回判断值
      */
     public boolean checkEquation(String equ1,String equ2){
-        becomeSuffix suffix = new becomeSuffix();
+        beSuffix suffix = new beSuffix();
         equ1 = suffix.becomeSuffix(equ1);
         equ2 = suffix.becomeSuffix(equ2);
         String[] strings = equ1.split(" ");//比较两后缀表达式是否相同
         for (int i = 0; i < strings.length ; i++) {
-            if(equ2.indexOf(strings[i] )==-1){
+            if(!equ2.contains(strings[i])){
                 return false;
                 //只查看是否出现此数字或符号，有局限性，但前面答案相同，表达式出现的每个数字或符号都有的概率比较小
             }
