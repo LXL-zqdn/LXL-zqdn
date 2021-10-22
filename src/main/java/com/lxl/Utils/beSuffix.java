@@ -19,7 +19,7 @@ public class beSuffix {
             char e ;
             char ch = equ.charAt(i);
             switch (ch){
-                case '(':        //左括号优先级最高，直接入栈，但只有遇到有括号才出栈
+                case '(':        //左括号优先级最高，直接入栈，但只有遇到右括号才出栈
                     s.push(ch);
                     break;
                 case '+':
@@ -27,7 +27,7 @@ public class beSuffix {
                     newStr += " ";
                     while(s.size() != 0){
                         e = s.pop();
-                        if(e == '('){  //优先级最低，不断将把自己高级的弹出栈并输出，知道遇到左括号，左括号不出栈
+                        if(e == '('){  //优先级最低，不断将比自己高级的弹出栈并输出，直到遇到左括号，左括号不出栈
                             s.push('(');//前面弹出栈，现在又压入栈
                             break;
                         }else{
